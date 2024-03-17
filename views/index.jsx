@@ -10,7 +10,11 @@ function Index ({breads})  {
 
         <ul>{
             breads.map((bread, index) => {
-              return(<li></li>)
+              return(<li key={index}>
+                <a>
+                {bread.name}
+                </a>
+              </li>)
             })
 
         }</ul>
