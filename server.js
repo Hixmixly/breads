@@ -27,6 +27,20 @@ app.listen(PORT, () => {
   console.log('listening on port', PORT);
 })
 
+// CREATE
+breads.post('/', (req, res) => {
+  console.log(req.body)
+  if(req.body.hasGluten === 'on') {
+    req.body.hasGluten = 'true'
+  } else {
+    req.body.hasGluten = 'false'
+  }
+  Bread.push(req.body)
+  res.redirect('/breads')
+})
+
+
+
 //404 page
 app.get('*', (req, res) => {
   res.send('404')
