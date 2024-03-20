@@ -12,6 +12,11 @@ breads.get('/', (req, res) => {
 // res.send(Bread)
 })
 
+//new
+breads.get ('/new', (req, res) =>{
+  res.render('new')
+})
+
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
     if (Bread[req.params.arrayIndex]) {
@@ -33,6 +38,8 @@ breads.post('/', (req, res) => {
   Bread.push (req.body) 
   res.send (Bread)
 })
+
+
 
 
 module.exports = breads
