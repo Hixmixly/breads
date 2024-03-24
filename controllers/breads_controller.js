@@ -1,6 +1,6 @@
 const express = require('express')
 const breads = express.Router()
-const Bread = require('../models/bread.js')
+
 
 // INDEX
 breads.get('/', (req, res) => {
@@ -12,10 +12,11 @@ breads.get('/', (req, res) => {
 // res.send(Bread)
 })
 
-//new
-breads.get ('/new', (req, res) =>{
+// NEW
+breads.get('/new', (req, res) => {
   res.render('new')
 })
+
 
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
@@ -28,18 +29,16 @@ breads.get('/:arrayIndex', (req, res) => {
   }
 })
 
-// Create
+// CREATE
 breads.post('/', (req, res) => {
-  if (req.body.hasGluten === 'on') {
+  if(req.body.hasGluten === 'on') {
     req.body.hasGluten = 'true'
   } else {
     req.body.hasGluten = 'false'
   }
-  Bread.push (req.body) 
-  res.send (Bread)
+  breads.push(req.body)
+  res.send(breads)
 })
-
-
 
 
 module.exports = breads
